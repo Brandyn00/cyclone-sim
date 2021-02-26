@@ -502,9 +502,9 @@ ENV_DEFS.defaults.ULSteering = {
     vector: true,
     magMap: [0,8,0,25],
     modifiers: {
-        jetstreamDeltaX: 10,
-        jetstreamHalfDecay: 40,
-        jetstreamOverpowerBase: 0.7,
+        jetstreamDeltaX: 5,
+        jetstreamHalfDecay: 20,
+        jetstreamOverpowerBase: 0.5,
         jetstreamInwardAngle: Math.PI/4,
         troughBase: 1.7,
         troughExponentMin: -5,
@@ -691,10 +691,10 @@ ENV_DEFS.defaults.SST = {
         let h1 = (sqrt(h0)+h0)/2;
         let h2 = sqrt(sqrt(h0));
         let h = map(cos(lerp(PI,0,lerp(h1,h2,sq(w)))),-1,1,0,1);
-        let ospt = u.modifiers.offSeasonPolarTemp;
-        let pspt = u.modifiers.peakSeasonPolarTemp;
-        let ostt = u.modifiers.offSeasonTropicsTemp;
-        let pstt = u.modifiers.peakSeasonTropicsTemp;
+        let ospt = u.modifiers.offSeasonPolarTemp;10
+        let pspt = u.modifiers.peakSeasonPolarTemp;20
+        let ostt = u.modifiers.offSeasonTropicsTemp;25
+        let pstt = u.modifiers.peakSeasonTropicsTemp;32
         let t = lerp(map(s,-1,1,ospt,pspt),map(s,-1,1,ostt,pstt),h);
         return t+anom;
     },
@@ -722,10 +722,10 @@ ENV_DEFS.defaults.SST = {
     },
     oceanic: true,
     modifiers: {
-        offSeasonPolarTemp: -3,
-        peakSeasonPolarTemp: 10,
+        offSeasonPolarTemp: -2,
+        peakSeasonPolarTemp: 12,
         offSeasonTropicsTemp: 26,
-        peakSeasonTropicsTemp: 29
+        peakSeasonTropicsTemp: 32
     }
 };
 ENV_DEFS[SIM_MODE_NORMAL].SST = {};
